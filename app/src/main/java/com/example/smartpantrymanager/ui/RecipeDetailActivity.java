@@ -1,0 +1,3 @@
+package com.example.smartpantrymanager.ui;
+import android.os.*;import android.widget.*;import androidx.appcompat.app.AppCompatActivity;import com.example.smartpantrymanager.R;import com.example.smartpantrymanager.data.DatabaseHelper;import com.example.smartpantrymanager.model.Recipe;
+public class RecipeDetailActivity extends AppCompatActivity{@Override protected void onCreate(Bundle b){super.onCreate(b);setContentView(R.layout.activity_recipe_detail);Recipe r=new DatabaseHelper(this).getRecipe(getIntent().getLongExtra("id",-1));if(r!=null){((TextView)findViewById(R.id.recipeTitle)).setText(r.getName());((TextView)findViewById(R.id.detailIngredients)).setText(r.getIngredients().replace(", ","\n• "));((TextView)findViewById(R.id.detailSteps)).setText(r.getSteps());}}}
